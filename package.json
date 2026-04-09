@@ -1,0 +1,18 @@
+{
+  "name": "ce-iprc",
+  "version": "1.0.0",
+  "description": "CE-IPRC Member Portal — WDD330 Individual Project",
+  "main": "index.html",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview",
+    "format": "prettier --write \"./**/*.{html,json,js,css}\""
+  },
+  "author": "Cassien Habyarimana",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.7",
+    "prettier": "^3.2.5"
+  }
+}
