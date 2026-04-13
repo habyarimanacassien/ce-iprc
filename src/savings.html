@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CE-IPRC | Savings</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a href="/dashboard.html" class="logo">CE-IPRC</a>
+      <nav>
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/savings.html">Savings</a>
+        <a href="/loans.html">Loans</a>
+        <a href="/interest.html">Interest</a>
+        <a href="/profile.html">Profile</a>
+        <button class="btn-logout" id="logout-btn">Logout</button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Savings History</h1>
+      <p class="subtitle">
+        Monthly deposits and withdrawals for <span id="member-name"></span>.
+      </p>
+
+      <div class="table-wrapper">
+        <h2>2024 – 2025 Statement</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Deposit</th>
+              <th>Withdrawal</th>
+              <th>Running Balance</th>
+            </tr>
+          </thead>
+          <tbody id="savings-tbody">
+            <tr><td colspan="4" class="empty">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p>
+    </footer>
+
+    <script type="module" src="./js/savings.js"></script>
+  </body>
+</html>

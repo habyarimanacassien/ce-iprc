@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CE-IPRC | Interest</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a href="/dashboard.html" class="logo">CE-IPRC</a>
+      <nav>
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/savings.html">Savings</a>
+        <a href="/loans.html">Loans</a>
+        <a href="/interest.html">Interest</a>
+        <a href="/profile.html">Profile</a>
+        <button class="btn-logout" id="logout-btn">Logout</button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Annual Interest</h1>
+      <p class="subtitle">Interest earned on your savings balance.</p>
+
+      <p id="total-interest" class="interest-total">Loading…</p>
+
+      <div class="table-wrapper">
+        <h2>Interest Records</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Amount Earned</th>
+            </tr>
+          </thead>
+          <tbody id="interest-tbody">
+            <tr><td colspan="2" class="empty">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p>
+    </footer>
+
+    <script type="module" src="./js/interest.js"></script>
+  </body>
+</html>

@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CE-IPRC | Dashboard</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <script type="module" src="./js/dashboard.js"></script>
   </head>
+
   <body>
-    <!-- Header -->
     <header class="site-header">
       <a href="/dashboard.html" class="logo">CE-IPRC</a>
       <nav>
@@ -21,55 +20,47 @@
       </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-      <!-- Page heading -->
-      <h1>Welcome back, <span id="member-name">Member</span> 👋</h1>
-      <p class="subtitle">Here is your financial summary for today.</p>
+      <h1>Welcome, <span id="member-name">Member</span></h1>
+      <p class="subtitle">Your financial overview — CE-IPRC Member Portal</p>
 
-      <!-- Summary Cards -->
       <section class="summary-cards">
         <div class="card">
-          <p class="card__label">Total Savings Balance</p>
-          <p class="card__value" id="card-savings">RWF —</p>
-        </div>
-        <div class="card card--red">
-          <p class="card__label">Outstanding Loan Balance</p>
-          <p class="card__value" id="card-loan">RWF —</p>
+          <p class="card__label">Current Balance</p>
+          <p class="card__value" id="card-balance">RWF —</p>
         </div>
         <div class="card card--blue">
-          <p class="card__label">Withdraw Balance</p>
-          <p class="card__value" id="card-withdraw">RWF —</p>
+          <p class="card__label">2025 Savings Deposits</p>
+          <p class="card__value" id="card-savings-2025">RWF —</p>
+        </div>
+        <div class="card card--red">
+          <p class="card__label">Loan Remaining Balance</p>
+          <p class="card__value" id="card-loan">RWF —</p>
         </div>
         <div class="card card--yellow">
-          <p class="card__label">Member Since</p>
-          <p class="card__value" id="card-member-since">—</p>
+          <p class="card__label">Opening Balance (2024)</p>
+          <p class="card__value" id="card-opening">RWF —</p>
         </div>
       </section>
 
-      <!-- Recent Transactions -->
       <div class="table-wrapper">
-        <h2>Recent Transactions</h2>
+        <h2>Recent Activity</h2>
         <table>
           <thead>
             <tr>
-              <th>Date</th>
+              <th>Month</th>
               <th>Type</th>
               <th>Amount</th>
-              <th>Running Balance</th>
             </tr>
           </thead>
           <tbody id="recent-tbody">
-            <tr>
-              <td colspan="4" class="empty">Loading…</td>
-            </tr>
+            <tr><td colspan="3" class="empty">Loading…</td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Loan Summary -->
       <div class="loan-summary-box">
-        <h2>Loan Applications</h2>
+        <h2>Loan Summary</h2>
         <div id="loan-summary">Loading…</div>
       </div>
     </main>
@@ -77,5 +68,7 @@
     <footer>
       <p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p>
     </footer>
+
+    <script type="module" src="./js/dashboard.js"></script>
   </body>
 </html>

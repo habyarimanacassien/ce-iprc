@@ -5,22 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CE-IPRC | Login</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <script type="module" src="./js/auth.js"></script>
-    <script type="module">
-      import { initLoginPage } from "./js/auth.js";
-      window.addEventListener("DOMContentLoaded", initLoginPage);
-    </script>
   </head>
+
   <body>
     <div class="login-wrapper">
       <div class="login-card">
-        <!-- Brand -->
+
         <div class="brand">
           <h1>CE-IPRC</h1>
           <p>Caisse d'Entraide IPRC — Member Portal</p>
         </div>
 
-        <!-- Login Form -->
         <form id="login-form" novalidate>
           <div class="form-group">
             <label for="email">Email Address</label>
@@ -28,7 +23,7 @@
               type="email"
               id="email"
               name="email"
-              placeholder="your@email.com"
+              placeholder="your.email@gmail.com"
               required
               autocomplete="email"
             />
@@ -40,34 +35,24 @@
               type="password"
               id="password"
               name="password"
-              placeholder="••••••••"
+              placeholder="••••••••••"
               required
               autocomplete="current-password"
             />
           </div>
 
-          <!-- Error message -->
-          <span
-            id="login-error"
-            class="error-msg"
-            style="display: none; margin-bottom: 0.75rem"
-          ></span>
+          <span id="login-error" class="error-msg hidden"></span>
 
           <button type="submit" class="btn btn--primary">Sign In</button>
         </form>
 
-        <!-- Demo hint -->
-        <p
-          style="
-            text-align: center;
-            margin-top: 1.2rem;
-            font-size: 0.8rem;
-            color: #6b7280;
-          "
-        >
-          Demo: <strong>cassien@example.com</strong> / <strong>demo1234</strong>
+        <p class="login-hint">
+          Use your registered email and the shared password.
         </p>
+
       </div>
     </div>
+
+    <script type="module" src="./js/login.js"></script>
   </body>
 </html>
