@@ -5,7 +5,10 @@ import { formatCurrency, formatDate } from "./utils.js";
 async function init() {
   const session = requireAuth();
 
-  document.getElementById("logout-btn").addEventListener("click", logout);
+  const nameEl = document.getElementById("member-name");
+  if (nameEl) nameEl.textContent = session.name;
+  const logoutBtn = document.getElementById("logout-btn");
+  if (logoutBtn) logoutBtn.addEventListener("click", logout);
 
   const loans = await getLoans();
   const myLoan = loans.find((r) => r.ID === session.id);
@@ -22,7 +25,12 @@ function renderLoanInfo(loan) {
     return;
   }
 
-  const statusColor = loan["Loan Status"] === "Approved" ? "green" : "yellow";
+  const statusColor =
+    loan["Loan Status"] === "Approved"
+      ? "green"
+      : loan["Loan Status"] === "Rejected"
+      ? "red"
+      : "yellow";
 
   container.innerHTML = `
     <div class="loan-meta-grid">
@@ -41,7 +49,7 @@ function renderLoanInfo(loan) {
         <p class="loan-meta__value">${formatCurrency(loan["Loan Amount"])}</p>
       </div>
       <div class="loan-meta__item">
-        <p class="loan-meta__label">Interest Rate</p>
+        <p class="loan-meta__label">Interest</p>
         <p class="loan-meta__value">${formatCurrency(loan["Interest on the loan"])}</p>
       </div>
       <div class="loan-meta__item">
@@ -107,7 +115,7 @@ function renderRepaymentSchedule(loan) {
         <td>${formatCurrency(s.amount)}</td>
         <td>
           <span class="badge badge--${s.paid ? "green" : "red"}">
-            ${s.paid ? "Yes" : "No"}
+            ${s.paid ? "Paid" : "Unpaid"}
           </span>
         </td>
       </tr>`
@@ -126,8 +134,8 @@ function renderRepaymentSchedule(loan) {
           <tr>
             <th>#</th>
             <th>Due Date (End of Month)</th>
-            <th>Amount</th>
-            <th>Paid</th>
+            <th>Amount (RWF)</th>
+            <th>Paid?</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>

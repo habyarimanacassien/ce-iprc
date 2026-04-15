@@ -41,7 +41,7 @@ export async function getInterests() {
   return fetchJson("ce-iprc-interests.json");
 }
 
-// The months tracked in the 2025 files, in order
+// The months as recorded in the 2025 files, in order
 export const MONTHS_2025 = [
   "Nov-24", "Dec-24",
   "Jan-25", "Feb-25", "Mar-25", "Apr-25",

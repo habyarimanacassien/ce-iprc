@@ -1,27 +1,41 @@
+// ============================================================
+// auth.js — CE-IPRC Authentication
+// Login / logout + session management via sessionStorage
+// ============================================================
+
 import { getProfiles } from "./data.js";
 
 const SESSION_KEY = "ce-session";
 const DEFAULT_PASSWORD = "ceiprc@2026!";
 
-// Read the current session
+// ---------- Session helpers ----------
+
 export function getSession() {
   return JSON.parse(sessionStorage.getItem(SESSION_KEY)) || null;
 }
 
-// Remove the session and redirect to the login page
-export function logout() {
+export function clearSession() {
   sessionStorage.removeItem(SESSION_KEY);
-  window.location.href = "/index.html";
 }
 
-// Redirect to login if no session exists
+// ---------- Auth guard ----------
+// Call at top of every protected page.
+// If no session → redirect to login.
 export function requireAuth() {
   const session = getSession();
-  if (!session) window.location.href = "/index.html";
+  if (!session) {
+    window.location.href = "./index.html";
+  }
   return session;
 }
 
-// Match email against the profile list and check the default password
+// ---------- Logout ----------
+export function logout() {
+  clearSession();
+  window.location.href = "./index.html";
+}
+
+// ---------- Login ----------
 export async function login(email, password) {
   if (password !== DEFAULT_PASSWORD) {
     return { success: false, message: "Invalid email or password." };
@@ -33,10 +47,9 @@ export async function login(email, password) {
   );
 
   if (!profile) {
-    return { success: false, message: "Invalid email or password." };
+    return { success: false, message: "No account found with that email." };
   }
 
-  // Store only what the app needs — never store the password
   sessionStorage.setItem(
     SESSION_KEY,
     JSON.stringify({
@@ -50,10 +63,11 @@ export async function login(email, password) {
   return { success: true };
 }
 
-// Wire up the login form on index.html
+// ---------- Init login page ----------
 export function initLoginPage() {
+  // If already logged in, skip straight to dashboard
   if (getSession()) {
-    window.location.href = "/dashboard.html";
+    window.location.href = "./dashboard.html";
     return;
   }
 
@@ -65,13 +79,20 @@ export function initLoginPage() {
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
+
+    const submitBtn = form.querySelector("button[type='submit']");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Signing in…";
+
     const result = await login(email, password);
 
     if (result.success) {
-      window.location.href = "/dashboard.html";
+      window.location.href = "./dashboard.html";
     } else {
       errorEl.textContent = result.message;
       errorEl.classList.remove("hidden");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Sign In";
     }
   });
 }

@@ -5,7 +5,11 @@ import { formatCurrency } from "./utils.js";
 async function init() {
   const session = requireAuth();
 
-  document.getElementById("logout-btn").addEventListener("click", logout);
+  const nameEl = document.getElementById("member-name");
+  if (nameEl) nameEl.textContent = session.name;
+
+  const logoutBtn = document.getElementById("logout-btn");
+  if (logoutBtn) logoutBtn.addEventListener("click", logout);
 
   const interests = await getInterests();
   const myRecord = interests.find((r) => r.ID === session.id);

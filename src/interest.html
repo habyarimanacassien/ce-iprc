@@ -8,21 +8,14 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <a href="/dashboard.html" class="logo">CE-IPRC</a>
-      <nav>
-        <a href="/dashboard.html">Dashboard</a>
-        <a href="/savings.html">Savings</a>
-        <a href="/loans.html">Loans</a>
-        <a href="/interest.html">Interest</a>
-        <a href="/profile.html">Profile</a>
-        <button class="btn-logout" id="logout-btn">Logout</button>
-      </nav>
-    </header>
+    <div id="navbar-container"></div>
 
     <main>
       <h1>Annual Interest</h1>
-      <p class="subtitle">Interest earned on your savings balance.</p>
+      <p class="subtitle">
+        Interest earned on savings balance for
+        <span id="member-name"></span>.
+      </p>
 
       <p id="total-interest" class="interest-total">Loading…</p>
 
@@ -32,7 +25,7 @@
           <thead>
             <tr>
               <th>Year</th>
-              <th>Amount Earned</th>
+              <th>Amount Earned (RWF)</th>
             </tr>
           </thead>
           <tbody id="interest-tbody">
@@ -46,6 +39,11 @@
       <p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p>
     </footer>
 
+    <script src="./js/components/navbar.js"></script>
+    <script>
+      document.getElementById("navbar-container").innerHTML = renderNavbar("interest");
+    </script>
+    <script src="./js/ui.js"></script>
     <script type="module" src="./js/interest.js"></script>
   </body>
 </html>

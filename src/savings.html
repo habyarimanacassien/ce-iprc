@@ -8,17 +8,7 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <a href="/dashboard.html" class="logo">CE-IPRC</a>
-      <nav>
-        <a href="/dashboard.html">Dashboard</a>
-        <a href="/savings.html">Savings</a>
-        <a href="/loans.html">Loans</a>
-        <a href="/interest.html">Interest</a>
-        <a href="/profile.html">Profile</a>
-        <button class="btn-logout" id="logout-btn">Logout</button>
-      </nav>
-    </header>
+    <div id="navbar-container"></div>
 
     <main>
       <h1>Savings History</h1>
@@ -32,9 +22,9 @@
           <thead>
             <tr>
               <th>Month</th>
-              <th>Deposit</th>
-              <th>Withdrawal</th>
-              <th>Running Balance</th>
+              <th>Deposit (RWF)</th>
+              <th>Withdrawal (RWF)</th>
+              <th>Running Balance (RWF)</th>
             </tr>
           </thead>
           <tbody id="savings-tbody">
@@ -48,6 +38,11 @@
       <p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p>
     </footer>
 
+    <script src="./js/components/navbar.js"></script>
+    <script>
+      document.getElementById("navbar-container").innerHTML = renderNavbar("savings");
+    </script>
+    <script src="./js/ui.js"></script>
     <script type="module" src="./js/savings.js"></script>
   </body>
 </html>

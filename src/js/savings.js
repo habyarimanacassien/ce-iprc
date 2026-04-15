@@ -5,8 +5,11 @@ import { formatCurrency } from "./utils.js";
 async function init() {
   const session = requireAuth();
 
-  document.getElementById("member-name").textContent = session.name;
-  document.getElementById("logout-btn").addEventListener("click", logout);
+  const nameEl = document.getElementById("member-name");
+  if (nameEl) nameEl.textContent = session.name;
+
+  const logoutBtn = document.getElementById("logout-btn");
+  if (logoutBtn) logoutBtn.addEventListener("click", logout);
 
   const [balance2024, savings2025, withdraws2025] = await Promise.all([
     getBalance2024(),
