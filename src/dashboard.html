@@ -5,65 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CE-IPRC | Dashboard</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
-
   <body>
     <div id="navbar-container"></div>
-
     <main>
       <h1>Welcome, <span id="member-name">Member</span></h1>
       <p class="subtitle">Your financial overview — CE-IPRC Member Portal</p>
-
       <section class="summary-cards">
-        <div class="card">
-          <p class="card__label">Current Balance</p>
-          <p class="card__value" id="card-balance">RWF —</p>
-        </div>
-        <div class="card card--blue">
-          <p class="card__label">2025 Savings Deposits</p>
-          <p class="card__value" id="card-savings-2025">RWF —</p>
-        </div>
-        <div class="card card--red">
-          <p class="card__label">Loan Remaining Balance</p>
-          <p class="card__value" id="card-loan">RWF —</p>
-        </div>
-        <div class="card card--yellow">
-          <p class="card__label">Opening Balance (2024)</p>
-          <p class="card__value" id="card-opening">RWF —</p>
-        </div>
+        <div class="card"><p class="card__label">Current Balance</p><p class="card__value" id="card-balance">RWF —</p></div>
+        <div class="card card--blue"><p class="card__label">2025 Savings Deposits</p><p class="card__value" id="card-savings-2025">RWF —</p></div>
+        <div class="card card--red"><p class="card__label">Loan Remaining Balance</p><p class="card__value" id="card-loan">RWF —</p></div>
+        <div class="card card--yellow"><p class="card__label">Opening Balance (2024)</p><p class="card__value" id="card-opening">RWF —</p></div>
       </section>
-
+      <div class="chart-box">
+        <h2>Savings Balance Growth</h2>
+        <canvas id="savings-chart" height="100"></canvas>
+      </div>
       <div class="table-wrapper">
         <h2>Recent Activity</h2>
         <table>
-          <thead>
-            <tr>
-              <th>Month</th>
-              <th>Type</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody id="recent-tbody">
-            <tr><td colspan="3" class="empty">Loading…</td></tr>
-          </tbody>
+          <thead><tr><th>Month</th><th>Type</th><th>Amount</th></tr></thead>
+          <tbody id="recent-tbody"><tr><td colspan="3" class="empty">Loading…</td></tr></tbody>
         </table>
       </div>
-
       <div class="loan-summary-box">
         <h2>Loan Summary</h2>
         <div id="loan-summary">Loading…</div>
       </div>
     </main>
-
-    <footer>
-      <p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p>
-    </footer>
-
-    <script src="./js/components/navbar.js"></script>
-    <script>
-      document.getElementById("navbar-container").innerHTML = renderNavbar("dashboard");
-    </script>
-    <script src="./js/ui.js"></script>
+    <footer><p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p></footer>
     <script type="module" src="./js/dashboard.js"></script>
   </body>
 </html>

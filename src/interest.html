@@ -5,45 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CE-IPRC | Interest</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
-
   <body>
     <div id="navbar-container"></div>
-
     <main>
       <h1>Annual Interest</h1>
-      <p class="subtitle">
-        Interest earned on savings balance for
-        <span id="member-name"></span>.
-      </p>
-
+      <p class="subtitle">Interest earned on savings balance for <span id="member-name"></span>.</p>
       <p id="total-interest" class="interest-total">Loading…</p>
-
       <div class="table-wrapper">
         <h2>Interest Records</h2>
         <table>
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Amount Earned (RWF)</th>
-            </tr>
-          </thead>
-          <tbody id="interest-tbody">
-            <tr><td colspan="2" class="empty">Loading…</td></tr>
-          </tbody>
+          <thead><tr><th>Year</th><th>Amount Earned (RWF)</th></tr></thead>
+          <tbody id="interest-tbody"><tr><td colspan="2" class="empty">Loading…</td></tr></tbody>
         </table>
       </div>
+      <div class="chart-box">
+        <h2>Annual Interest Chart</h2>
+        <canvas id="interest-chart" height="120"></canvas>
+      </div>
     </main>
-
-    <footer>
-      <p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p>
-    </footer>
-
-    <script src="./js/components/navbar.js"></script>
-    <script>
-      document.getElementById("navbar-container").innerHTML = renderNavbar("interest");
-    </script>
-    <script src="./js/ui.js"></script>
+    <footer><p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p></footer>
     <script type="module" src="./js/interest.js"></script>
   </body>
 </html>

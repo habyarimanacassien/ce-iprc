@@ -1,10 +1,11 @@
+import { initNav } from "./nav.js";
 import { requireAuth, logout } from "./auth.js";
 import { getMemberById } from "./data.js";
 
 async function init() {
   const session = requireAuth();
 
-  document.getElementById("logout-btn").addEventListener("click", logout);
+  initNav("profile");
 
   const member = await getMemberById(session.id);
   if (member) renderProfile(member);

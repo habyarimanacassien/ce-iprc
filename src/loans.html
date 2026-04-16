@@ -5,35 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CE-IPRC | Loans</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
-
   <body>
     <div id="navbar-container"></div>
-
     <main>
       <h1>Loan Details</h1>
-      <p class="subtitle">
-        Your loan record and full repayment schedule for
-        <span id="member-name"></span>.
-      </p>
-
+      <p class="subtitle">Loan record and full repayment schedule for <span id="member-name"></span>.</p>
       <div class="content-box">
         <h2>Loan Overview</h2>
         <div id="loan-info">Loading…</div>
       </div>
-
       <div id="schedule-container">Loading…</div>
     </main>
-
-    <footer>
-      <p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p>
-    </footer>
-
-    <script src="./js/components/navbar.js"></script>
-    <script>
-      document.getElementById("navbar-container").innerHTML = renderNavbar("loans");
-    </script>
-    <script src="./js/ui.js"></script>
+    <footer><p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p></footer>
     <script type="module" src="./js/loans.js"></script>
   </body>
 </html>

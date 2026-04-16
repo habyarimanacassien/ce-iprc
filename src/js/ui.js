@@ -1,6 +1,5 @@
 // ============================================================
 // ui.js — CE-IPRC UI Interactions
-// Wires up hamburger toggle and mobile logout button.
 // ============================================================
 
 (function () {

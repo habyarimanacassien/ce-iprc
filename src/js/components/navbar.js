@@ -1,5 +1,5 @@
 // ============================================================
-// navbar.js — CE-IPRC Shared Navigation Component 
+// navbar.js — CE-IPRC Shared Navigation Component
 // ============================================================
 
 function renderNavbar(activePage = "") {

@@ -5,44 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CE-IPRC | Savings</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
-
   <body>
     <div id="navbar-container"></div>
-
     <main>
       <h1>Savings History</h1>
-      <p class="subtitle">
-        Monthly deposits and withdrawals for <span id="member-name"></span>.
-      </p>
-
+      <p class="subtitle">Monthly deposits and withdrawals for <span id="member-name"></span>.</p>
       <div class="table-wrapper">
         <h2>2024 – 2025 Statement</h2>
         <table>
-          <thead>
-            <tr>
-              <th>Month</th>
-              <th>Deposit (RWF)</th>
-              <th>Withdrawal (RWF)</th>
-              <th>Running Balance (RWF)</th>
-            </tr>
-          </thead>
-          <tbody id="savings-tbody">
-            <tr><td colspan="4" class="empty">Loading…</td></tr>
-          </tbody>
+          <thead><tr><th>Month</th><th>Deposit (RWF)</th><th>Withdrawal (RWF)</th><th>Running Balance (RWF)</th></tr></thead>
+          <tbody id="savings-tbody"><tr><td colspan="4" class="empty">Loading…</td></tr></tbody>
         </table>
       </div>
     </main>
-
-    <footer>
-      <p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p>
-    </footer>
-
-    <script src="./js/components/navbar.js"></script>
-    <script>
-      document.getElementById("navbar-container").innerHTML = renderNavbar("savings");
-    </script>
-    <script src="./js/ui.js"></script>
+    <footer><p>© 2025 CE-IPRC · Caisse d'Entraide IPRC</p></footer>
     <script type="module" src="./js/savings.js"></script>
   </body>
 </html>

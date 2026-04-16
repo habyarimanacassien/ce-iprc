@@ -5,56 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CE-IPRC | Login</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
-
   <body>
     <div class="login-wrapper">
       <div class="login-card">
-
-        <!-- Circular brand logo — clicking it stays on login (home) -->
         <div class="brand">
           <a href="./index.html" class="brand-logo-circle" title="CE-IPRC Home">CE</a>
           <h1>CE-IPRC</h1>
           <p>Caisse d'Entraide IPRC — Member Portal</p>
         </div>
-
         <form id="login-form" novalidate>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="your.email@gmail.com"
-              required
-              autocomplete="email"
-            />
+            <input type="email" id="email" name="email" placeholder="your.email@gmail.com" required autocomplete="email" />
           </div>
-
           <div class="form-group">
             <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="••••••••••"
-              required
-              autocomplete="current-password"
-            />
+            <input type="password" id="password" name="password" placeholder="••••••••••" required autocomplete="current-password" />
           </div>
-
           <span id="login-error" class="error-msg hidden"></span>
-
           <button type="submit" class="btn btn--primary">Sign In</button>
         </form>
-
-        <p class="login-hint">
-          Use your registered email and the shared portal password.
-        </p>
-
+        <p class="login-hint">Use your registered email and the shared portal password.</p>
       </div>
     </div>
-
     <script type="module" src="./js/login.js"></script>
   </body>
 </html>

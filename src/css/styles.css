@@ -1,5 +1,5 @@
 /* ============================================================
-   styles.css — CE-IPRC Global Stylesheet
+   styles.css — CE-IPRC Global Stylesheet (Week 5)
    Color scheme: Green (#1A7A4A), Navy (#1A1A2E), Sky Blue (#2D9CDB)
    ============================================================ */
 
@@ -845,4 +845,88 @@ footer {
   tbody td {
     padding: 0.5rem 0.65rem;
   }
+}
+
+/* ============================================================
+   CHART STYLES (Week 6)
+   ============================================================ */
+
+.chart-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.chart-box h2 {
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gray-border);
+  padding-bottom: 0.4rem;
+}
+
+.chart-legend {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-legend__dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chart-legend__dot--green { background: rgba(26,122,74,0.75); }
+.chart-legend__dot--red   { background: rgba(231,76,60,0.65); }
+.chart-legend__dot--blue  { background: rgba(45,156,219,0.70); }
+
+/* ============================================================
+   WEEK 7 — NAV.JS IMPROVEMENTS
+   Slide-in mobile nav transition
+   ============================================================ */
+
+/* Override: mobile-nav now always in DOM but off-screen */
+.mobile-nav {
+  display: flex !important;
+  flex-direction: column;
+  position: fixed;
+  top: 64px;
+  right: 0;
+  width: 240px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  z-index: 190;
+  overflow: hidden;
+  transform: translateX(110%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0 0 0 var(--radius);
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* Week 7: notification badge on nav links */
+.nav-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  background: var(--red);
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0 4px;
+  margin-left: 4px;
+  vertical-align: middle;
 }

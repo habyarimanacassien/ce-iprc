@@ -1,3 +1,4 @@
+import { initNav } from "./nav.js";
 import { requireAuth, logout } from "./auth.js";
 import { getBalance2024, getSavings2025, getWithdraws2025, MONTHS_2025 } from "./data.js";
 import { formatCurrency } from "./utils.js";
@@ -5,6 +6,7 @@ import { formatCurrency } from "./utils.js";
 async function init() {
   const session = requireAuth();
 
+  initNav("savings");
   const nameEl = document.getElementById("member-name");
   if (nameEl) nameEl.textContent = session.name;
 
