@@ -1,5 +1,5 @@
 /* ============================================================
-   styles.css — CE-IPRC Global Stylesheet (Week 5)
+   styles.css — CE-IPRC Global Stylesheet
    Color scheme: Green (#1A7A4A), Navy (#1A1A2E), Sky Blue (#2D9CDB)
    ============================================================ */
 
@@ -70,23 +70,26 @@ body {
 }
 
 .brand-logo-circle {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background: var(--green-primary);
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 0.85rem;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   margin-bottom: 0.75rem;
   box-shadow: 0 4px 14px rgba(26, 122, 74, 0.4);
   text-decoration: none;
   cursor: pointer;
   border: 3px solid rgba(255, 255, 255, 0.3);
   transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  line-height: 1.1;
+  padding: 6px;
 }
 
 .brand-logo-circle:hover {
@@ -135,8 +138,8 @@ body {
 
 /* ---------- Circular logo in navbar ---------- */
 .logo-circle {
-  width: 42px;
-  height: 42px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.18);
   border: 2px solid rgba(255, 255, 255, 0.55);
@@ -144,13 +147,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.5px;
   text-decoration: none;
   flex-shrink: 0;
   transition: background 0.2s, transform 0.2s;
   cursor: pointer;
+  text-align: center;
+  line-height: 1.1;
+  padding: 4px;
 }
 
 .logo-circle:hover {
@@ -848,7 +854,7 @@ footer {
 }
 
 /* ============================================================
-   CHART STYLES (Week 6)
+   CHART STYLES
    ============================================================ */
 
 .chart-box {
@@ -889,7 +895,7 @@ footer {
 .chart-legend__dot--blue  { background: rgba(45,156,219,0.70); }
 
 /* ============================================================
-   WEEK 7 — NAV.JS IMPROVEMENTS
+   NAV.JS IMPROVEMENTS
    Slide-in mobile nav transition
    ============================================================ */
 
@@ -914,7 +920,7 @@ footer {
   transform: translateX(0);
 }
 
-/* Week 7: notification badge on nav links */
+/* notification badge on nav links */
 .nav-badge {
   display: inline-flex;
   align-items: center;
@@ -929,4 +935,17 @@ footer {
   padding: 0 4px;
   margin-left: 4px;
   vertical-align: middle;
+}
+
+/* ── Repayment Schedule Table Row Colours ── */
+tbody tr.row--paid td {
+  background: rgba(26, 122, 74, 0.04);
+}
+
+tbody tr.row--unpaid td {
+  background: rgba(231, 76, 60, 0.03);
+}
+
+.text-muted {
+  color: var(--text-muted);
 }

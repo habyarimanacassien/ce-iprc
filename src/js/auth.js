@@ -1,6 +1,5 @@
 // ============================================================
 // auth.js — CE-IPRC Authentication
-// Login / logout + session management via sessionStorage
 // ============================================================
 
 import { getProfiles } from "./data.js";
@@ -20,7 +19,7 @@ export function clearSession() {
 
 // ---------- Auth guard ----------
 // Call at top of every protected page.
-// If no session --> redirect to login.
+// If no session → redirect to login.
 export function requireAuth() {
   const session = getSession();
   if (!session) {

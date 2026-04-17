@@ -1,6 +1,5 @@
 // ============================================================
 // notifications.js — CE-IPRC Email Notifications
-// Uses EmailJS to send templated email alerts.
 // ============================================================
 
 const EMAILJS_PUBLIC_KEY   = "YSWtTz5EJGCNCzr34"; 

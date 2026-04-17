@@ -21,7 +21,7 @@ function renderNavbar(activePage = "") {
   return `
     <header class="site-header">
       <a href="./dashboard.html" class="logo-circle" title="Go to Dashboard">
-        <span>CE</span>
+        <span>CE-IPRC</span>
       </a>
 
       <nav class="desktop-nav">

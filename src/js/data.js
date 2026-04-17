@@ -49,40 +49,79 @@ export const MONTHS_2025 = [
 ];
 
 // Build a chronological repayment schedule from a loan record.
-// Each installment falls on the last day of a month between
-// Start Date and End Date.
+// Handles date formats: "31/1/2025", "1/2025", "31-12-2027", "Jan 2025"
+// Returns rows covering the full period from Start Date to End Date.
+// Columns: date (end of month), paid status, paid amount, remaining balance.
 export function buildRepaymentSchedule(loan) {
-  const installments = loan["Number of installments"];
-  const installmentAmount = loan["Installment Amount"];
-  const paidCount = loan["Paid installment"] || 0;
-  const startDate = loan["Start Date"];
+  const installments    = loan["Number of installments"];
+  const installmentAmt  = loan["Installment Amount"];
+  const paidCount       = loan["Paid installment"] || 0;
+  const startDateStr    = loan["Start Date"];
+  const totalLoanAmt    = loan["Loan Amount"];
 
-  if (!installments || !installmentAmount || !startDate) return [];
+  if (!installments || !installmentAmt || !startDateStr) return [];
 
-  // Parse "MM/YYYY" or "Month YYYY" style dates
-  const parseMonthYear = (str) => {
+  // ── Parse a date string into { month (0-based), year } ──────
+  // Handles: "31/1/2025", "1/2025", "31-12-2027", "Jan 2025"
+  function parseMonthYear(str) {
     if (!str) return null;
-    const parts = str.trim().split(/[\s/]/);
-    if (parts.length === 2) {
-      const month = parseInt(parts[0], 10) - 1;
-      const year = parseInt(parts[1], 10);
-      return new Date(year, month, 1);
+    const s = String(str).trim();
+
+    // "31-12-2027"  or "31/12/2027"  → dd[-/]mm[-/]yyyy
+    const dmyMatch = s.match(/^(\d{1,2})[-/](\d{1,2})[-/](\d{4})$/);
+    if (dmyMatch) {
+      return { month: parseInt(dmyMatch[2], 10) - 1, year: parseInt(dmyMatch[3], 10) };
     }
+
+    // "1/2025" or "12/2025" → mm/yyyy
+    const myMatch = s.match(/^(\d{1,2})\/(\d{4})$/);
+    if (myMatch) {
+      return { month: parseInt(myMatch[1], 10) - 1, year: parseInt(myMatch[2], 10) };
+    }
+
+    // "Jan 2025" or "January 2025"
+    const monthNames = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+    const wordMatch  = s.match(/^([a-z]+)\s+(\d{4})$/i);
+    if (wordMatch) {
+      const mIdx = monthNames.indexOf(wordMatch[1].toLowerCase().slice(0, 3));
+      if (mIdx !== -1) return { month: mIdx, year: parseInt(wordMatch[2], 10) };
+    }
+
     return null;
-  };
+  }
 
-  const start = parseMonthYear(startDate);
-  if (!start) return [];
+  // --------- Last day of a given month ---------
+  function lastDayOf(month, year) {
+    return new Date(year, month + 1, 0);  // day 0 of next month = last day of this month
+  }
 
+  const startParsed = parseMonthYear(startDateStr);
+  if (!startParsed) return [];
+
+  // Build schedule row by row
   const schedule = [];
+  let   remainingBalance = totalLoanAmt;
+
   for (let i = 0; i < installments; i++) {
-    const dueDate = new Date(start.getFullYear(), start.getMonth() + i + 1, 0);
+    // Advance month from start
+    let m = startParsed.month + i;
+    let y = startParsed.year + Math.floor(m / 12);
+    m = m % 12;
+
+    const dueDate  = lastDayOf(m, y);
+    const isPaid   = i < paidCount;
+    const paidAmt  = isPaid ? installmentAmt : 0;
+    remainingBalance -= paidAmt;
+
     schedule.push({
-      number: i + 1,
+      number:           i + 1,
       dueDate,
-      amount: installmentAmount,
-      paid: i < paidCount,
+      paid:             isPaid,
+      installmentAmt,
+      paidAmt:          isPaid ? installmentAmt : null,
+      remainingBalance: Math.max(0, remainingBalance),
     });
   }
+
   return schedule;
 }

@@ -13,7 +13,7 @@ const NAV_LINKS = [
 ];
 
 export function initNav(activePage = "") {
-  // ── 1. Build and inject the header ─────────────────────────
+  // ------- Build and inject the header -------
   const container = document.getElementById("navbar-container");
   if (!container) return;
 
@@ -27,7 +27,7 @@ export function initNav(activePage = "") {
   container.innerHTML = `
     <header class="site-header">
       <a href="./dashboard.html" class="logo-circle" title="CE-IPRC — Go to Dashboard">
-        <span>CE</span>
+        <span>CE-IPRC</span>
       </a>
 
       <nav class="desktop-nav" aria-label="Main navigation">
@@ -61,7 +61,7 @@ export function initNav(activePage = "") {
     </nav>
   `;
 
-  // ── 2. Wire hamburger toggle ────────────────────────────────
+  // ---------------- Wire hamburger toggle ----------------
   const hamburger = document.getElementById("hamburgerBtn");
   const mobileMenu = document.getElementById("mobileMenu");
 
@@ -90,7 +90,7 @@ export function initNav(activePage = "") {
     if (e.key === "Escape") closeMenu(hamburger, mobileMenu);
   });
 
-  // ── 3. Wire logout buttons ──────────────────────────────────
+  // ------------- Wire logout buttons -----------------
   document.getElementById("logout-btn").addEventListener("click", logout);
   document.getElementById("mobile-logout-btn").addEventListener("click", logout);
 }
