@@ -1,10 +1,10 @@
 # CE-IPRC Member Portal
 
-**WDD 330 — Project | Cassien Habyarimana**
+**WDD 330 --- Project | Cassien Habyarimana**
 
 A web application for members of the Caisse d'Entraide IPRC to view their financial information online.
 
-### Step 1 — Install Dependencies & Run Dev Server
+### Step 1 --- Install Dependencies & Run Dev Server
 
 ```bash
 npm install
@@ -13,15 +13,13 @@ npm start
 
 Open http://localhost:5173 in the browser
 
-### Step 2 — Login
+### Step 2 --- Login
 
 Use your registered email address and the shared default password:
 
 - **Password:** ceiprc@2026!
 
-### Sample data
-
-## Team Members
+### Sample data of CE-IPRC Members:
 
 | Family Name | First Name  | E-mail                           |
 | ----------- | ----------- | -------------------------------- |
@@ -31,9 +29,9 @@ Use your registered email address and the shared default password:
 | Nyiramuhire | Annonciathe | nyiramuhireannonciathe@yahoo.fr  |
 | Ineza       | Ysaline     | inezashimwa@gmail.com            |
 
-**Notifications Example**
+**Notifications Example:**
 
-Open the website, then in the browser console, type for example (use your names and email):
+Open the website, then in the browser console, type for example (You can use your names and email):
 
 ```bash
 testInitEmail();
