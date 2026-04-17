@@ -80,3 +80,9 @@ export async function notifyInterestSummary(member, interest) {
   });
 }
 */
+
+// Make functions accessible in browser console (DEV ONLY)
+if (typeof window !== "undefined") {
+  window.testNotifyLoan = notifyLoanStatus;
+  window.testInitEmail = initEmailJS;
+}
