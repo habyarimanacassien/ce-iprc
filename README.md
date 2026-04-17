@@ -18,3 +18,12 @@ Open http://localhost:5173 in the browser
 Use your registered email address and the shared default password:
 
 - **Password:** ceiprc@2026!
+
+### Sample data
+
+**Family name**	      **First name**	          **e-mail**	   
+Habyarimana	            Cassien	           habyarimanacassien@gmail.com
+Cyubahiro	            Aime	                haca2020@yahoo.fr
+    Gisa	            Nicolas	           nyiramuhireannonciathe@gmail.com
+Nyiramuhire	           Annonciathe	       nyiramuhireannonciathe@yahoo.fr
+    Ineza	            Ysaline	              inezashimwa@gmail.com
