@@ -27,3 +27,21 @@ Cyubahiro	            Aime	                haca2020@yahoo.fr
     Gisa	            Nicolas	           nyiramuhireannonciathe@gmail.com
 Nyiramuhire	           Annonciathe	       nyiramuhireannonciathe@yahoo.fr
     Ineza	            Ysaline	              inezashimwa@gmail.com
+
+**Notifications Example**
+Open the website, then in the browser console, type for example (use your names and email):
+
+testInitEmail();
+testNotifyLoan(
+  { name: "Habyarimana Cassien", email: "habyarimanacassien@gmail.com" },
+  { amount: 6497000, status: "Approved", dateApplied: "2025-01-31" }
+);
+
+
+or:
+
+testInitEmail();
+notifySavingsTransaction(
+  { name: "Habyarimana Cassien", email: "habyarimanacassien@gmail.com" },
+  { type: "Saving", amount: 200000, balance: 2567000, date: "2025-01-31" }
+);
