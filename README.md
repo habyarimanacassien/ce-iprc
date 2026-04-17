@@ -45,7 +45,7 @@ or:
 
 ```bash
 testInitEmail();
-notifySavingsTransaction(
+testNotifySavings(
   { name: "Habyarimana Cassien", email: "habyarimanacassien@gmail.com" },
   { type: "Saving", amount: 200000, balance: 2567000, date: "2025-01-31" }
 );
