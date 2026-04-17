@@ -3,6 +3,7 @@ import { requireAuth, logout } from "./auth.js";
 import { getInterests } from "./data.js";
 import { formatCurrency } from "./utils.js";
 import { renderInterestChart } from "./charts.js";
+import "./notifications.js";
 
 async function init() {
   const session = requireAuth();

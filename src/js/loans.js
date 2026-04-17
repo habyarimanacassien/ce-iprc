@@ -3,6 +3,7 @@ import { requireAuth, logout } from "./auth.js";
 import { getLoans, buildRepaymentSchedule } from "./data.js";
 import { formatCurrency, formatDate } from "./utils.js";
 import { renderLoanChart } from "./charts.js";
+import "./notifications.js";
 
 async function init() {
   const session = requireAuth();

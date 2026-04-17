@@ -2,6 +2,7 @@ import { initNav } from "./nav.js";
 import { requireAuth, logout } from "./auth.js";
 import { getBalance2024, getSavings2025, getWithdraws2025, MONTHS_2025 } from "./data.js";
 import { formatCurrency } from "./utils.js";
+import "./notifications.js";
 
 async function init() {
   const session = requireAuth();

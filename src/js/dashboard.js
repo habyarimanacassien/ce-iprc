@@ -3,6 +3,7 @@ import { requireAuth, logout } from "./auth.js";
 import { getBalance2024, getSavings2025, getWithdraws2025, getLoans, MONTHS_2025 } from "./data.js";
 import { formatCurrency } from "./utils.js";
 import { renderSavingsChart } from "./charts.js";
+import "./notifications.js";
 
 async function init() {
   const session = requireAuth();

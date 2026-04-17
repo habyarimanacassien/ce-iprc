@@ -1,6 +1,7 @@
 import { initNav } from "./nav.js";
 import { requireAuth, logout } from "./auth.js";
 import { getMemberById } from "./data.js";
+import "./notifications.js";
 
 async function init() {
   const session = requireAuth();
